@@ -1,4 +1,5 @@
 import 'package:final_gloggapp/homepage.dart';
+import 'package:final_gloggapp/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -14,27 +15,30 @@ class _LoginState extends State<Login> {
   String _email, _password;
 
   checkAuthentication() async {
-    _auth.onAuthStateChanged.listen((user) {
+    _auth.authStateChanges().listen((user) {
       if (user != null) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+        print(user);
+
+        Navigator.pushReplacementNamed(context, "/");
       }
     });
-    @override
-    void initState() {
-      super.initState();
-      this.checkAuthentication();
-    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.checkAuthentication();
   }
 
   login() async {
     if (_formkey.currentState.validate()) {
       _formkey.currentState.save();
       try {
-        FirebaseUser user = await _auth.signInWithEmailAndPassword(
+        await _auth.signInWithEmailAndPassword(
             email: _email, password: _password);
       } catch (e) {
-        showError(e.errormessage);
+        showError(e.message);
+        print(e);
       }
     }
   }
@@ -55,6 +59,10 @@ class _LoginState extends State<Login> {
             ],
           );
         });
+  }
+
+  navigateToSignUp() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
 
   @override
@@ -78,30 +86,27 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        child: TextFormField(validator: (input) {
-                          if (input.isEmpty) return 'Enter Valid Email Address';
-
-                          decoration:
-                          InputDecoration(
-                              labelText: 'Email Address',
-                              prefixIcon: Icon(Icons.email));
-                          onSaved:
-                          (input) => _email = input;
-                        }),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty)
+                                return 'Enter Valid Email Address';
+                            },
+                            decoration: InputDecoration(
+                                labelText: 'Email Address',
+                                prefixIcon: Icon(Icons.email)),
+                            onSaved: (input) => _email = input),
                       ),
                       Container(
-                        child: TextFormField(validator: (input) {
-                          if (input.length < 6) return 'Password is short';
-
-                          decoration:
-                          InputDecoration(
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.length < 6) return 'Password is short';
+                            },
+                            decoration: InputDecoration(
                               labelText: 'Password',
-                              prefixIcon: Icon(Icons.password));
-                          obsecureText:
-                          true;
-                          onSaved:
-                          (input) => _password = input;
-                        }),
+                              prefixIcon: Icon(Icons.password),
+                            ),
+                            obscureText: true,
+                            onSaved: (input) => _password = input),
                       ),
                       SizedBox(height: 20),
                       RaisedButton(
@@ -115,10 +120,9 @@ class _LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        color: Colors. white,
+                        color: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)
-                        ),
+                            borderRadius: BorderRadius.circular(20.0)),
                       ),
                     ],
                   ),

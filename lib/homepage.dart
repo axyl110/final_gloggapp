@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:final_gloggapp/start.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,22 +10,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseUser user;
+  User user;
   bool isloggedin = false;
 
   checkAuthentication() async {
-    _auth.onAuthStateChanged.listen((user) {
+     _auth.authStateChanges().listen((user) {
       if (user == null) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Start()));
-      }
+        Navigator.of(context).pushReplacementNamed("start");
+        }
     });
   }
 
   getuser() async {
-    FirebaseUser firebaseUser = await _auth.currentUser();
+    User firebaseUser =  _auth.currentUser;
     await firebaseUser?.reload();
-    firebaseUser = await _auth.currentUser();
+    firebaseUser = _auth.currentUser;
 
     if (firebaseUser != null) {
       setState(() {
@@ -35,9 +35,12 @@ class _HomePageState extends State<HomePage> {
   }
   signOut() async{
     _auth.signOut();
+    final googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
   }
   @override
   void initState() {
+   super.initState();
     this.checkAuthentication();
     this.getuser();
   }
