@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "219946143212",
+    "project_id": "final-food-app-1db09",
+    "storage_bucket": "final-food-app-1db09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219946143212:android:37bad763bb0cd1183304c9",
+        "android_client_info": {
+          "package_name": "com.example.final_gloggapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219946143212-rmmv0h24malgu6mcdgjgtgoh42bhsc12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.final_gloggapp",
+            "certificate_hash": "ec3a652bfafb6fd9f1aadb30521589214d1fe80c"
+          }
+        },
+        {
+          "client_id": "219946143212-1ai8tv43ikomtl7jamk3ndh5t029k3v5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ZMGoDrTh49bt94jHz8Lp4bxbEh0-V0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219946143212-1ai8tv43ikomtl7jamk3ndh5t029k3v5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
