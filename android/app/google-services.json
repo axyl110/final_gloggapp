@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "136686644071",
+    "project_id": "recipe-app-b030f",
+    "storage_bucket": "recipe-app-b030f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136686644071:android:3b682edb5497e2a0c19dc2",
+        "android_client_info": {
+          "package_name": "com.example.final_gloggapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136686644071-keag4klm4l0g1t4gvv77stdslc56uude.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzonoKpffpogGPiRfSMzNubCn76-QOEFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136686644071-keag4klm4l0g1t4gvv77stdslc56uude.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
