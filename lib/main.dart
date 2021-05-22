@@ -1,11 +1,11 @@
-import 'package:final_gloggapp/homepage.dart';
-import 'package:final_gloggapp/login.dart';
-import 'package:final_gloggapp/signup.dart';
-import 'package:final_gloggapp/start.dart';
-import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:final_gloggapp/service/authentication.dart';
+import 'package:final_gloggapp/screens/initscreen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -14,18 +14,21 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Glogg App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        Provider<FlutterFireAuthService>(
+          create: (_) => FlutterFireAuthService(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          create: (context) =>
+              context.read<FlutterFireAuthService>().authStateChanges,
+          initialData: null,
+        )
+      ],
+      child: MaterialApp(
+        title: 'FlutterFire Provider Template',
+        home: InitialScreen(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      routes: <String, WidgetBuilder>{
-        "Login": (BuildContext context) => Login(),
-        "SignUp": (BuildContext context) => SignUp(),
-        "start": (BuildContext context) => Start(),
-      },
     );
   }
 }

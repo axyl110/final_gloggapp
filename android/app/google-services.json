@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "219946143212",
-    "project_id": "final-food-app-1db09",
-    "storage_bucket": "final-food-app-1db09.appspot.com"
+    "project_number": "136686644071",
+    "project_id": "recipe-app-b030f",
+    "storage_bucket": "recipe-app-b030f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:219946143212:android:37bad763bb0cd1183304c9",
+        "mobilesdk_app_id": "1:136686644071:android:3b682edb5497e2a0c19dc2",
         "android_client_info": {
           "package_name": "com.example.final_gloggapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "219946143212-rmmv0h24malgu6mcdgjgtgoh42bhsc12.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.final_gloggapp",
-            "certificate_hash": "ec3a652bfafb6fd9f1aadb30521589214d1fe80c"
-          }
-        },
-        {
-          "client_id": "219946143212-1ai8tv43ikomtl7jamk3ndh5t029k3v5.apps.googleusercontent.com",
+          "client_id": "136686644071-keag4klm4l0g1t4gvv77stdslc56uude.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_ZMGoDrTh49bt94jHz8Lp4bxbEh0-V0o"
+          "current_key": "AIzaSyDzonoKpffpogGPiRfSMzNubCn76-QOEFE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "219946143212-1ai8tv43ikomtl7jamk3ndh5t029k3v5.apps.googleusercontent.com",
+              "client_id": "136686644071-keag4klm4l0g1t4gvv77stdslc56uude.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
