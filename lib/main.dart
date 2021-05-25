@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'FlutterFire Provider Template',
+        title: 'Final Glogg App',
         home: InitialScreen(),
       ),
     );

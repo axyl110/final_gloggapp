@@ -31,7 +31,7 @@ class _InitialScreenState extends State<InitialScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
-                "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"),
+                "https://i2.wp.com/ranchofrescomexicangrill.com/wp-content/uploads/2019/04/brooke-lark-385507-unsplash.jpg?ssl=1"),
             fit: BoxFit.cover,
           ),
         ),

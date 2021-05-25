@@ -18,7 +18,7 @@ class FlutterFireAuthService {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      print("Signed In");
+      
       Navigator.push(
         context,
         MaterialPageRoute(
