@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:final_gloggapp/screens/homescreen.dart';
 import 'package:final_gloggapp/screens/loginscreen.dart';
 import 'package:final_gloggapp/screens/signupscreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class InitialScreen extends StatefulWidget {
   InitialScreen({Key key}) : super(key: key);
@@ -31,7 +32,7 @@ class _InitialScreenState extends State<InitialScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
-                "https://www.restorationcity.church/wp-content/uploads/2018/10/brooke-lark-385507-unsplash.jpg"),
+                "https://i2.wp.com/ranchofrescomexicangrill.com/wp-content/uploads/2019/04/brooke-lark-385507-unsplash.jpg?ssl=1"),
             fit: BoxFit.cover,
           ),
         ),
