@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:final_gloggapp/screens/homescreen.dart';
 import 'package:final_gloggapp/screens/loginscreen.dart';
 import 'package:final_gloggapp/screens/signupscreen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class InitialScreen extends StatefulWidget {
   InitialScreen({Key key}) : super(key: key);

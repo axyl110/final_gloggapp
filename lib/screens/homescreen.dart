@@ -79,7 +79,7 @@ class HomeScreenState extends State<HomeScreen> {
               Center(child: Icon(Icons.list_outlined)),
               _buildRecipes(recipes
                   .where((recipe) => userFavorites.contains(recipe.id))
-                  .toList()),
+                  .toList()), 
             ],
           ),
         ),

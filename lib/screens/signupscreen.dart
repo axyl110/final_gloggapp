@@ -1,3 +1,6 @@
+import 'package:final_gloggapp/others/routes.dart';
+import 'package:final_gloggapp/service/firebase.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:final_gloggapp/service/authentication.dart';
@@ -10,6 +13,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -28,6 +32,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+             Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: TextField(
+                controller: usernameController,
+                decoration: InputDecoration(
+                  labelText: "Username",
+                ),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
@@ -58,10 +71,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: MaterialButton(
                 onPressed: () async{
                   context.read<FlutterFireAuthService>().signUp(
-                        email: emailController.text.trim(),
+                        username: usernameController.text,
+                        email: emailController.text,
                         password: passwordController.text.trim(),
                         context: context,
                       );
+                  User updateUser = FirebaseAuth.instance.currentUser;
+                  updateUser.updateProfile(displayName: emailController.text);
+                  userSetup(emailController.text,usernameController.text);
+                  Navigator.of(context).pushNamed(AppRoutes.home);                 
                 },
                 child: Text(
                   "Sign Up",
