@@ -27,6 +27,7 @@ dependencies:
   snapping_sheet: ^3.0.0+2
   image_picker: ^0.7.5+2 
   provider: ^5.0.0
+  curved_navigation_bar: ^0.3.7
 
   #FlutterFire
   firebase_auth: ^1.1.2

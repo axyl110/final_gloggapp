@@ -1,4 +1,4 @@
-import 'package:final_gloggapp/recipe.dart';
+import 'package:final_gloggapp/others/recipe.dart';
 
 List<Recipe> getRecipes() {
   return [
