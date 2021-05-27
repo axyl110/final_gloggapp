@@ -1,4 +1,5 @@
 import 'package:final_gloggapp/screens/TabBarNavigation/add.dart';
+import 'package:final_gloggapp/screens/TabBarNavigation/profile.dart';
 import 'package:final_gloggapp/screens/TabBarNavigation/search.dart';
 import 'package:final_gloggapp/screens/recipe_card.dart';
 import 'package:flutter/material.dart';
@@ -79,55 +80,7 @@ class HomeScreenState extends State<HomeScreen> {
               _buildRecipes(recipes
                   .where((recipe) => recipe.type == RecipeType.drink)
                   .toList()),
-               Center(
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"),
-                            radius: 50,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Column(
-                          children: [
-                            Text('10', style: TextStyle(fontSize: 20.0,)),
-                            Text('Publications', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                        SizedBox(width: 20.0),
-                        Column(
-                          children: [
-                            Text('132', style: TextStyle(fontSize: 20.0,)),
-                            Text('Following', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                        SizedBox(width: 20.0),
-                        Column(
-                          children: [
-                            Text('298', style: TextStyle(fontSize: 20.0,)),
-                            Text('Followers', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height:20.0),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 250.0),
-                      child: Text('Favorites', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
-                    ),
-                    Flexible(
-                    child: _buildRecipes(recipes
-                          .where((recipe) => userFavorites.contains(recipe.id))
-                          .toList()),
-                    ),
-                  ],
-                ),
-              ),
+              ProfileScreen(),
             ],
           ),
         ),
@@ -135,67 +88,3 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-class AddName extends StatelessWidget {
-  final rName = TextEditingController(), food = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Publish Recipe",
-              style: TextStyle(
-                fontSize: 35.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Divider(
-              height: 15.0,
-              thickness: 3,
-              indent: 5,
-              endIndent: 150,
-              color: Colors.black,
-            ),
-            SizedBox(height: 20.0),
-            tField('Recipe Name', rName, 'Name'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-Widget tField(String title, TextEditingController input, String text) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 20.0,
-          ),
-        ),
-        TextField(
-          controller: input,
-          keyboardType: TextInputType.text,
-          style: TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: text,
-            labelStyle: TextStyle(color: Colors.white, fontSize: 20.0),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
