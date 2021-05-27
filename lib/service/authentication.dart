@@ -2,16 +2,22 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:final_gloggapp/screens/homescreen.dart';
 
-
 class FlutterFireAuthService {
   final FirebaseAuth _firebaseAuth;
 
   FlutterFireAuthService(this._firebaseAuth);
 
   Stream<User> get authStateChanges => _firebaseAuth.idTokenChanges();
+  
+  getEmail() {
+    return _firebaseAuth.currentUser.email;
+  }
 
   Future<String> signUp(
-      {String username, String email, String password, BuildContext context}) async {
+      {String username,
+      String email,
+      String password,
+      BuildContext context}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);

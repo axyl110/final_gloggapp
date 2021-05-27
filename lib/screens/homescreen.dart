@@ -1,4 +1,5 @@
 import 'package:final_gloggapp/screens/TabBarNavigation/add.dart';
+import 'package:final_gloggapp/screens/TabBarNavigation/search.dart';
 import 'package:final_gloggapp/screens/recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:final_gloggapp/utils/store.dart';
@@ -73,12 +74,12 @@ class HomeScreenState extends State<HomeScreen> {
               _buildRecipes(recipes
                   .where((recipe) => recipe.type == RecipeType.food)
                   .toList()),
-              Center(child: Icon(Icons.search)),
+              SearchScreen(),
               Add(),
               _buildRecipes(recipes
                   .where((recipe) => recipe.type == RecipeType.drink)
                   .toList()),
-              Center(
+               Center(
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -86,7 +87,7 @@ class HomeScreenState extends State<HomeScreen> {
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(
                             "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"),
-                        radius: 50,
+                            radius: 50,
                       ),
                     ),
                     Row(
@@ -94,55 +95,33 @@ class HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Column(
                           children: [
-                            Text('10',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                )),
-                            Text('Publications',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold)),
+                            Text('10', style: TextStyle(fontSize: 20.0,)),
+                            Text('Publications', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(width: 20.0),
                         Column(
                           children: [
-                            Text('132',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                )),
-                            Text('Following',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold)),
+                            Text('132', style: TextStyle(fontSize: 20.0,)),
+                            Text('Following', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(width: 20.0),
                         Column(
                           children: [
-                            Text('298',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                )),
-                            Text('Followers',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold)),
+                            Text('298', style: TextStyle(fontSize: 20.0,)),
+                            Text('Followers', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ],
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height:20.0),
                     Padding(
                       padding: const EdgeInsets.only(right: 250.0),
-                      child: Text(
-                        'Favorites',
-                        style: TextStyle(
-                            fontSize: 20.0, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('Favorites', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
                     ),
                     Flexible(
-                      child: _buildRecipes(recipes
+                    child: _buildRecipes(recipes
                           .where((recipe) => userFavorites.contains(recipe.id))
                           .toList()),
                     ),
@@ -219,3 +198,4 @@ Widget tField(String title, TextEditingController input, String text) {
     ),
   );
 }
+
